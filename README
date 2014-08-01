@@ -1,0 +1,70 @@
+
+This is based on the following "specification" given to me :
+
+# Spec
+# =================================================================================
+
+# There will need to be a file containing the ranking list - ranking, name, and points.
+# Equal points = equal ranking.  Then skip as discussed, 1,2,2,4  :)
+# Output from the script should be an update ranking list in the file.  For bonus points, output it coded as a html table I can cut & paste onto the website ;)
+# Input will be a list of name pairs, winner and loser.  I can give it in a file as a literal list of pairs if that makes life easier.
+# The loser gets their current points value incremented by 1.
+# If the winner is ranked equal or higher than the loser, they get their points incremented by 2.
+#otherwise, the winners points are incremented by (Losers_Rank - Winners_Rank)+1.
+# Re-sort the ranking list by points and update ranking position before processing the next winner/loser pair.  
+# ==================================================================================
+
+This is for a "Challenge Cup" at a fencing club. At each training session each week,
+any 5-hit bout can be declared to be a Challenge bout (both fencers must agree).  If it
+is, the result is written down, and later processed into these rankings.
+
+
+TODO : So much tidying up, rewrite all as one or two Ruby programs, Web-ify it.
+
+
+1. Assumes a file called "rankings" exists, formatted as:
+Name1,points1
+Name2,points2
+
+etc
+
+In descending order of points.
+
+2. Input files are in the format :
+Winner Loser Winner_score Loser_score Referee Weapon(F/E/S)
+
+Can contain one or more bout results.  Ranking updates will be processed in the order of bouts
+in the input file.
+
+3. Main script - update_rankings.sh
+
+Usage: update_rankings.sh <input file>
+
+Processes the bout results from the input file, takes a backup of rankings file, then updates the file with the new rankings
+
+Calls cc.rb
+
+4.  cc.rb
+
+This takes a winner and loser as input, and processes the rankings update based on the
+formula above
+
+5.  allstats.sh
+
+Assuming the input files are all named by date (YYYYMMDD), calculates some "interesting"
+stats :
+a. number of bouts in each weapon
+b. winning percentage for each fencer
+c. participation count for each fencer (fenced + refereed)
+d. count of each bout score
+
+6. fenstats.sh
+
+Calculates winning percentages / hit index for one fencer, optionally can restrict to time period based on pattern entered
+
+7. checkinput.sh
+
+Usage: checkinput.sh <input file>
+
+Checks for obvious typos / case inconsistencies in the input file
+
