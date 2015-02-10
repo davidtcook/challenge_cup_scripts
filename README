@@ -14,13 +14,6 @@ This is based on the following "specification" given to me :
 # Re-sort the ranking list by points and update ranking position before processing the next winner/loser pair.  
 # ==================================================================================
 
-This is for a "Challenge Cup" at a fencing club. At each training session each week,
-any 5-hit bout can be declared to be a Challenge bout (both fencers must agree).  If it
-is, the result is written down, and later processed into these rankings.
-
-
-TODO : So much tidying up, rewrite all as one or two Ruby programs, Web-ify it.
-
 
 1. Assumes a file called "rankings" exists, formatted as:
 Name1,points1
@@ -40,31 +33,11 @@ in the input file.
 
 Usage: update_rankings.sh <input file>
 
-Processes the bout results from the input file, takes a backup of rankings file, then updates the file with the new rankings
+Processes the bout results from the input file, an
+# Usage : ruby cc.rb <winner> <loser>
 
-Calls cc.rb
+# Result - rankings file updated with new points
 
-4.  cc.rb
 
-This takes a winner and loser as input, and processes the rankings update based on the
-formula above
-
-5.  allstats.sh
-
-Assuming the input files are all named by date (YYYYMMDD), calculates some "interesting"
-stats :
-a. number of bouts in each weapon
-b. winning percentage for each fencer
-c. participation count for each fencer (fenced + refereed)
-d. count of each bout score
-
-6. fenstats.sh
-
-Calculates winning percentages / hit index for one fencer, optionally can restrict to time period based on pattern entered
-
-7. checkinput.sh
-
-Usage: checkinput.sh <input file>
-
-Checks for obvious typos / case inconsistencies in the input file
+}
 
