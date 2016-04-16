@@ -58,9 +58,9 @@ wp = Rubypress::Client.new(:host     => WP_HOST,
 
 p wp
 
-z = wp.getPost({:post_id => 256})
+z = wp.getPost({:post_id  => 1354})
 p z
-z = wp.editPost({:post_id => 256, :content => {:post_content => content } })
+z = wp.editPost({:post_id => 1354, :content => {:post_content => content } })
 p z
-z = wp.getPost({:post_id => 256})
+z = wp.getPost({:post_id  => 1354})
 p z
